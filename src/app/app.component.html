@@ -1,20 +1,25 @@
 <h1>{{title}}</h1>
 <br>
-<button (click)="botaoInserir()">
-  <mat-icon>add</mat-icon>
-</button>
+<div class="addButton">
+  <button mat-fab color="primary" id="addButton" (click)="botaoInserir()">
+    <mat-icon>add</mat-icon>
+  </button> 
+</div>
 <br>
-<mat-card *ngFor="let gato of gatos" class="example-card">
-  <mat-card-header>
-    <p>{{gato.raca}}</p><br>
-    <p>{{gato.idade}}</p>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      descrição do bichano
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Editar</button>
-  </mat-card-actions>
-</mat-card>
+<div class="exibicao">
+  <mat-card *ngFor="let gato of gatos" class="example-card">
+    <mat-card-header class="card-header">
+      <p class="header-paragraph">Raça: {{gato.raca}}</p>
+      <p class="header-paragraph">Idade: {{gato.idade}}</p>
+    </mat-card-header>
+    <img mat-card-image src="https://blog-static.petlove.com.br/wp-content/uploads/2021/10/gato-sumiu-Petlove.jpg?_ga=2.53662120.1095472610.1682459832-1295768032.1682459832">
+    <mat-card-content>
+      <p class="header-paragraph">Descrição: </p>{{gato.desc}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="apagarGato(gato)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

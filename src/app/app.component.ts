@@ -24,19 +24,19 @@ export class AppComponent {
     const dialog = document.createElement('div');
     dialog.id = 'insertionDialog';
     dialog.innerHTML = `
-      <form id = "insertion">
-        <label for="racaInput">Raça:</label>
-        <input type="text" id ="racaInput" required>
-        <br>
-        <label for="idadeInput">Idade:</label>
-        <input type="text" id ="idadeInput" required>
-        <br>
-        <label for="desc">Descrição:</label>
-        <input type="text" id ="desc" required>
-      </form>
-
-
+    <form id = "insertion">
+    <label for="racaInput">Raça:</label>
+    <input type="text" id ="racaInput" required>
+    <br>
+    <label for="idadeInput">Idade:</label>
+    <input type="text" id ="idadeInput" required>
+    <br>
+    <label for="desc">Descrição:</label>
+    <input type="text" id ="desc" required>
+    </form>
     `;
+    
+    const appRoot = document.body.querySelector('app-root')
     document.body.appendChild(dialog);
     const button = document.createElement('button');
     button.id = 'insertButton'
@@ -54,5 +54,10 @@ export class AppComponent {
       })
     }
 
+    }
+
+    apagarGato(gato: Gato) {
+      const idx = this.gatos.indexOf(gato);
+      this.gatos.splice(idx, 1);
     }
   }
